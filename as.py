@@ -16,18 +16,5 @@ print(b_val)
 for r in f_val:
     print(r.boxes)
 
-'''def fbox(val):
-    fruit_boxes=[]
-    for r in val:
-        for box in r.boxes:
-            x1,y1,x2,y2=box.xyxy[0].tolist()
-            fruit_boxes.append([x1,x2,y1,y2])
-    return fruit_boxes
-
-fruit_boxes_front=fbox(f_val)
-fruit_boxes_back=fbox(b_val)
-
-print(fruit_boxes_front,fruit_boxes_back)'''
-
 
 
