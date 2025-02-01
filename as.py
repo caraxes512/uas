@@ -46,9 +46,27 @@ def assign_fruits_to_plants(plants, fruits):
 
     return plant_fruit_count
 
+front_plants, front_fruits = detect_objects("images_close_img_7_4.jpg")
+rear=cv2.imread("images_close_img_7_20.jpg")
+flip=cv2.flip(rear,1)
+cv2.imwrite("mirrored_image.jpg", flip)
+rear_plants,rear_fruits = detect_objects("mirrored_image.jpg")
 
-front_image=cv2.imread("images_close_img_21_2.jpg")
-back_image=cv2.imread("images_close_img_3_0_back.jpg")    
+
+# Count fruits per plant
+plant_fruit_counts1 = assign_fruits_to_plants(front_plants, front_fruits)
+print(plant_fruit_counts1)
+plant_fruit_counts2 = assign_fruits_to_plants(rear_plants, rear_fruits)
+print(plant_fruit_counts2)
+
+plant_fruit_counts={}
+for i in range(3):
+    plant_fruit_counts[i] = Counter(plant_fruit_counts1[i]) + Counter(plant_fruit_counts2[i])
+
+# Display Results
+for plant_id, fruit_count in plant_fruit_counts.items():
+    print(f"Plant {plant_id}: Red={fruit_count[0]}, Yellow={fruit_count[1]}, Purple={fruit_count[2]}")
+
 
 
 
