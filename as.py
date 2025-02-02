@@ -60,7 +60,7 @@ plant_fruit_counts2 = assign_fruits_to_plants(rear_plants, rear_fruits)
 print(plant_fruit_counts2)
 
 plant_fruit_counts={}
-for i in range(3):
+for i in range(len(plant_fruit_counts1)):
     plant_fruit_counts[i] = Counter(plant_fruit_counts1[i]) + Counter(plant_fruit_counts2[i])
 
 # Display Results
