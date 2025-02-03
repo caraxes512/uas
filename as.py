@@ -1,6 +1,7 @@
 import cv2
 from ultralytics import YOLO
 import numpy as np
+from collections import Counter
 
 model=YOLO('best.pt')
 
